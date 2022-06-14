@@ -40,3 +40,6 @@ Route::get('/product/delete/{id}',[ProductController::class,'delete'])->name('pr
 
 //SHOW INVOICE
 route::get('/invoice/create',[InvoiceController::class,'create'])->name('invoice.create');
+
+route::post('/invoice/store',[InvoiceController::class,'store'])->name('invoice.store');
+
