@@ -29,6 +29,6 @@
                 <td><a href="{{ route('product.delete', $product->id) }}" class="btn btn-danger">Delete</a></td> 
               </tr>
             @endforeach
-            
+          </tbody>  
     </table>
 @endsection

@@ -22,7 +22,7 @@ class CreateSoldItemsTable extends Migration
             $table->integer('invoice_id')->unsigned();
             $table->foreign('invoice_id')->references('id')->on('invoices'); 
 
-            $table->integer('quanity')->unsigned();
+            $table->integer('quantity')->unsigned();
             $table->integer('selling_price')->unsigned(); 
 
             $table->timestamps();

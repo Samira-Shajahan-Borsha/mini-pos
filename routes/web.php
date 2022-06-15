@@ -38,8 +38,20 @@ Route::post('/product/update/{id}',[ProductController::class,'update'])->name('p
 Route::get('/product/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
 
 
-//SHOW INVOICE
+//INVOICE
 route::get('/invoice/create',[InvoiceController::class,'create'])->name('invoice.create');
 
+//STORE INVOICE
 route::post('/invoice/store',[InvoiceController::class,'store'])->name('invoice.store');
+
+//INVOICE LIST
+route::get('/invoice/index',[InvoiceController::class,'index'])->name('invoice.index');
+
+//SHOW INVOICE
+route::get('/invoice/show/{id}',[InvoiceController::class,'show'])->name('invoice.show');
+
+
+
+
+
 

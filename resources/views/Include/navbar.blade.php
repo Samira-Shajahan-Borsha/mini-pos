@@ -15,6 +15,9 @@
           <li class="nav-item">
             <a class="nav-link active" href="{{ route('invoice.create') }}">New Invoice</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{ route('invoice.index') }}">Invoice List</a>
+          </li>
           
          
         </ul>
