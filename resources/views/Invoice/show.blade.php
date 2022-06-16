@@ -1,9 +1,12 @@
 @extends('Include.layout')
 @section('content')
+
     <h3>Invoice Number: {{ $invoice->invoice_number }} </h3>
+
     <table class="table table-striped">   
     @php
         $serial = 0;
+        $total = 0;
     @endphp
         <thead>
             <tr>
@@ -15,14 +18,26 @@
             </tr>
         </thead>
         <tbody>
-            {{-- <tr>
+            @foreach($sold_items as $sold_item)
+            <tr>
                 <td>{{ ++$serial }}</td>
-                <td>{{ $products->name  }}</td>
+                <td>{{ $sold_item->name  }}</td>
+                <td>{{ $sold_item->selling_price }}</td>
+                <td>{{ $sold_item->quantity }}</td>
+                <td>{{ $sold_item->selling_price * $sold_item->quantity }}</td>
+                @php
+                    $total += $sold_item->selling_price * $sold_item->quantity;
+                @endphp
+            </tr>
+            @endforeach
+            <tr>
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr> --}}
+                <td>Total Amount: </td>
+                <td>{{ $total }}</td>
+            </tr>
         </tbody>
     </table>
-
+    
 @endsection

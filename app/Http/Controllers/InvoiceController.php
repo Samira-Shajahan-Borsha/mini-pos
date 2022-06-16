@@ -62,8 +62,17 @@ class InvoiceController extends Controller
     }
     public function show($id)
     {
+        
+        $sold_items = Invoice::join('sold_items', 'invoices.id', '=' , 'sold_items.invoice_id')
+                            ->join('products', 'products.id', '=', 'sold_items.product_id')
+                            ->select('sold_items.quantity', 'invoices.total', 'products.name', 'sold_items.selling_price', 'invoices.invoice_number')
+                            ->where('invoices.id', '=' , $id)
+                            ->get();
+
         $invoice = Invoice::find($id);
-        return view('Invoice.show',compact('invoice'));
+        // dd($invoice);
+
+        return view('Invoice.show',compact('sold_items','invoice'));
     }
     
     
